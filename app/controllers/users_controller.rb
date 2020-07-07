@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!, only: [:index, :show, :edit, :update]
+
     def top
     end
   
     def about
     end
-  
-    before_action :authenticate_user!, only: [:index, :show, :edit, :update]
-  
+    
     def index
       @users = User.all
       @book = Book.new
