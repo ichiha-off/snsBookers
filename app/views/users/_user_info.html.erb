@@ -10,10 +10,39 @@
                 <th>introduction</th>
                 <th><%= user.introduction %></th>
             </tr>
+            <tr>
+                <th>Follow</th>
+                <th>
+                    <%= link_to user_followings_path(user.id) do %>
+                        <%= user.following_user.count %>
+                    <% end %>
+                </th>
+            </tr>
+            <tr>
+                <th>Follower</th>
+                <th>
+                    <%= link_to user_followers_path(user.id) do %>
+                        <%= user.follower_user.count %>
+                    <% end %>
+                </th>            
+            </tr>
         </tbody>
     </table>
         <div class="row">
             <%= link_to edit_user_path(user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" do %>
+            <% end %>
+        </div>
+        <div class="row">
+            <% unless current_user == user %>
+                <% if current_user.following?(user) %>
+                    <%= button_to user_relationships_path(user.id), method: :delete, class: "btn-sm btn-danger" do %>
+                        <i class="glyphicon glyphicon-minus"></i>
+                    <% end %>
+                <% else %>
+                    <%= button_to user_relationships_path(user.id), method: :post, class: "btn-sm btn-success" do %>
+                            <i class="glyphicon glyphicon-plus"></i>
+                    <% end %>
+                <% end %>
             <% end %>
         </div>
 

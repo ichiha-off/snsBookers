@@ -1,0 +1,7 @@
+<h2>Your Followers</h2>
+
+<% unless @users.count == 0 %>
+  <%= render 'users/index', users: @users %>
+<% else %>
+  <h3>フォロワーがいません。友人を誘ってみましょう！</h3>
+<% end %>

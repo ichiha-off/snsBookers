@@ -1,0 +1,7 @@
+<h2>Your Follow Users</h2>
+
+<% if @users.count == 0 %>
+  <h3>フォローしているユーザーがいません。フォローしてみましょう！</h3>
+<% else %>
+  <%= render 'users/index', users: @users %>
+<% end %>
