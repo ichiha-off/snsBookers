@@ -1,0 +1,19 @@
+<h1>Search Result</h1>
+
+<% if @range == "2" %>
+
+  <% if @book.blank? %>
+    <h3>本は見つかりませんでした。</h3>
+  <% else %>
+    <%= render 'books/index', books: @book %>
+  <% end %>
+
+<% elsif @range == "1" %>
+
+  <% if @user.blank? %>
+      <h3>ユーザーは見つかりませんでした。</h3>
+  <% else %>
+    <%= render 'users/index', users: @user %>
+  <% end %>
+  
+<% end %>
