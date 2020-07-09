@@ -35,11 +35,11 @@
         <div class="row">
             <% unless current_user == user %>
                 <% if current_user.following?(user) %>
-                    <%= button_to user_relationships_path(user.id), method: :delete, class: "btn-sm btn-danger" do %>
+                    <%= button_to user_relationships_path(user.id), method: :delete, class: "col-xs-12 btn-sm btn-danger" do %>
                         <i class="glyphicon glyphicon-minus"></i>
                     <% end %>
                 <% else %>
-                    <%= button_to user_relationships_path(user.id), method: :post, class: "btn-sm btn-success" do %>
+                    <%= button_to user_relationships_path(user.id), method: :post, class: "col-xs-12 btn-sm btn-success" do %>
                             <i class="glyphicon glyphicon-plus"></i>
                     <% end %>
                 <% end %>
